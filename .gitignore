@@ -1,0 +1,10 @@
+# Ignore node_modules at root, 1 level, and 2 levels deep
+/node_modules/
+/*/node_modules/
+/*/*/node_modules/
+
+# Ignore .env at root, 1 level, and 2 levels deep
+.env
+*/.env
+*/*/.env
+
