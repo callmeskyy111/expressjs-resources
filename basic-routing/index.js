@@ -20,17 +20,25 @@ app.post("/contact", (req, res) => {
   console.log(req.body);
 });
 
-app.put("/contact/:email", (req, res) => {
+app.put("/contact/:email", (_, res) => {
   res.send("Your contact-info is updated");
 });
 
-app.delete("/delete-contact/:id", (req, res) => {
+app.delete("/delete-contact/:id", (_, res) => {
   res.send("Your contact-info is deleted ☑️");
 });
 
-//dynamic routes  - req.params.dynamic_property , (/bla/bla/:dynamic_property)
+// dynamic routes  - req.params.dynamic_property , (/bla/bla/:dynamic_property)
 app.get("/users/:id", (req, res) => {
   res.send(`User ID: ${req.params.id} ✅`);
+});
+
+// Query strings for Search And Category based filter
+//Ex- http://localhost:3001/search?title=post2&category=shirts
+app.get("/search", (req, res) => {
+  const {title,category} = req.query;
+  console.log(req.query)
+  res.send(`Query str: title is ${title} and category is ${category} ✅`);
 });
 
 // start the server
