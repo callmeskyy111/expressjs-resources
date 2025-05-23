@@ -28,6 +28,11 @@ app.delete("/delete-contact/:id", (req, res) => {
   res.send("Your contact-info is deleted ☑️");
 });
 
+//dynamic routes  - req.params.dynamic_property , (/bla/bla/:dynamic_property)
+app.get("/users/:id", (req, res) => {
+  res.send(`User ID: ${req.params.id} ✅`);
+});
+
 // start the server
 app.listen(PORT, () => {
   console.log(`Server listening on PORT: ${PORT} ☑️`);
